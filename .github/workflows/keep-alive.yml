@@ -1,0 +1,13 @@
+﻿name: Keep Card Arena Server Awake
+
+on:
+  schedule:
+    - cron: '*/10 1-15 * * *'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wake Render Server
+        run: curl -fsS --max-time 30 https://card-arena-server-1okd.onrender.com/health
